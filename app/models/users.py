@@ -9,7 +9,7 @@ class Users(models.Model):
     name = models.CharField(max_length=16)
     biography = models.CharField(max_length=255, blank=True, null=True)
     date_of_birth = models.DateField(null=True)
-    phone_number = models.CharField(unique=True, max_length=10)
+    phone_number = models.CharField(unique=True, max_length=11)
     link = models.URLField(null=True, blank=True)
     icon = models.ImageField(upload_to='icon/', null=True)
     adult_flag = models.BooleanField(default=0)
