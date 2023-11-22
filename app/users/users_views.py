@@ -13,3 +13,9 @@ class UserView(APIView):
         qs = Users.objects.all()
         serializer = UserSerializer(qs, many=True)
         return Response(serializer.data)
+
+    def post(self, request, *args, **kwargs):
+        serializer = UserSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response({'result':True})
